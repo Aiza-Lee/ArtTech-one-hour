@@ -12,6 +12,6 @@ public class EnemyGenerator : MonoBehaviour {
 	private void SpawnEnemy() {
 		var enemy = Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
 		enemy.SetTarget(_playerTransform);
-		enemy.gameObject.transform.localScale = Vector3.one * Random.Range(0.5f, 1.5f);
+		enemy.gameObject.transform.localScale = Vector3.one * Random.Range(0.8f, 1.6f);
 	}
 }

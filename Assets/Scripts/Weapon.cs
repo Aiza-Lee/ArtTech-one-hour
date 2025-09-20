@@ -4,6 +4,7 @@ public class Weapon : MonoBehaviour {
 	[Header("属性")]
 	public float Cooldown = 0.5f;
 
+	[SerializeField] private WeaponSoundPlayer _soundPlayer;
 
 	private float _lastUseTime = -9999f;
 	private bool _onPlayer;
@@ -25,6 +26,8 @@ public class Weapon : MonoBehaviour {
 		Debug.Log("UseWeapon");
 		_onPlayer = !_onPlayer;
 		if (_onPlayer) {
+			CameraShaker.Inst.Shake(0.4f, 0.4f);
+			_soundPlayer.PlayShootSound();
 			DamageLineGenerator.Inst.Spawn(_bondedPlayer.transform.position, transform.position);
 			_bondedPlayer.transform.position = transform.position;
 			transform.SetParent(_bondedPlayer.transform);

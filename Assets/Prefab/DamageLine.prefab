@@ -100,11 +100,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LineColor: {r: 1, g: 0, b: 0, a: 1}
-  LineWidth: 0.3
+  LineWidth: 0.6
   LaserSprite: {fileID: -3040737957587010207, guid: f492f8f447faf9640a1a8e1639931ce6, type: 3}
   FadeInTime: 0.05
   FadeOutTime: 0.05
-  LifeTime: 0.4
+  LifeTime: 0.7
 --- !u!61 &6352509884001339373
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -167,10 +167,10 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 2
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 650be2cca359e0094969aa2600000000
+  m_ApplyToSortingLayers: 4969aa26
   m_LightCookieSprite: {fileID: -3040737957587010207, guid: f492f8f447faf9640a1a8e1639931ce6, type: 3}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
