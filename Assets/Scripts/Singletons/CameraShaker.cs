@@ -19,7 +19,7 @@ public class CameraShaker : MonoBehaviour {
 	public void Shake(float duration, float magnitude) {
 		if (_curPosTweener != null && _curPosTweener.IsActive()) {
 			_curPosTweener.Kill();
-			transform.localPosition = Vector3.zero;
+			transform.localPosition = new Vector3(0f, 0f, -10f);
 		}
 		_curPosTweener = transform.DOShakePosition(duration, magnitude * _magnitudeFactor);
 		if (_curRotTweener != null && _curRotTweener.IsActive()) {

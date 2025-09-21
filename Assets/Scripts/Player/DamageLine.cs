@@ -34,7 +34,7 @@ public class DamageLine : MonoBehaviour {
 		Debug.Log($"Spawn DamageLine from {start} to {end}");
 		transform.position = (start + end) / 2;
 		var direction = end - start;
-		var length = direction.magnitude;
+		var length = direction.magnitude + LineWidth * 2;
 		
 		transform.up = direction.normalized; 
 		

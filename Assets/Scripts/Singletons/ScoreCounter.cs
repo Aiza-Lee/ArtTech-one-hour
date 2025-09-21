@@ -8,10 +8,7 @@ public class ScoreCounter : MonoBehaviour {
 	private int _score = 0;
 
 	void Awake() {
-		if (Inst != null && Inst != this) {
-			Destroy(gameObject);
-			return;
-		}
+		if (Inst != null && Inst != this) { Destroy(gameObject); }
 		Inst = this;
 	}
 

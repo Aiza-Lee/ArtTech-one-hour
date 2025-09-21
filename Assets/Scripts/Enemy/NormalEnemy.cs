@@ -10,7 +10,7 @@ public class NormalEnemy : MonoBehaviour {
 	public float ChasingForce = 2f;
 	public int Damage = 1;
 
-	[SerializeField] private EnemyHurtParticle _hurtParticle;
+	[SerializeField] private ParticleTrigger _hurtParticle;
 
 	[SerializeField] private float _maxSpeed = 5f;
 
@@ -66,7 +66,7 @@ public class NormalEnemy : MonoBehaviour {
 	IEnumerator DoDestroy() {
 		_target = null;
 		GetComponent<Collider2D>().enabled = false;
-		yield return new WaitForSeconds(_hurtParticle.Duration);
+		yield return new WaitForSeconds(_hurtParticle.Duration * 2f);
 		Destroy(gameObject);
 	}
 }
