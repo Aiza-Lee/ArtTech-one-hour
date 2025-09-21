@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Nightingle Studio
+  companyName: Nightingale Studio
   productName: ArtTech-one-hour
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
