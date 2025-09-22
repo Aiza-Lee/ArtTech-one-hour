@@ -781,7 +781,7 @@ MonoBehaviour:
   _playerTransform: {fileID: 1335700509}
   _enemyPrefab: {fileID: 1123778591278414205, guid: fd6f08a652be0014bb873d40d9ed9008, type: 3}
   SpawnInterval: 1.7
-  SpeedUpRate: 0.0000001
+  SpeedUpRate: 0.0001
 --- !u!4 &632966972
 Transform:
   m_ObjectHideFlags: 0
@@ -1283,7 +1283,7 @@ MonoBehaviour:
   _playerTransform: {fileID: 1335700509}
   _enemyPrefab: {fileID: 1123778591278414205, guid: fd6f08a652be0014bb873d40d9ed9008, type: 3}
   SpawnInterval: 1.8
-  SpeedUpRate: 0.0000001
+  SpeedUpRate: 0.0001
 --- !u!4 &937190470
 Transform:
   m_ObjectHideFlags: 0
@@ -1331,7 +1331,7 @@ MonoBehaviour:
   _playerTransform: {fileID: 1335700509}
   _enemyPrefab: {fileID: 1123778591278414205, guid: fd6f08a652be0014bb873d40d9ed9008, type: 3}
   SpawnInterval: 1.5
-  SpeedUpRate: 0.0000001
+  SpeedUpRate: 0.0001
 --- !u!4 &1026808795
 Transform:
   m_ObjectHideFlags: 0
@@ -1522,7 +1522,7 @@ MonoBehaviour:
   _playerTransform: {fileID: 1335700509}
   _enemyPrefab: {fileID: 1123778591278414205, guid: fd6f08a652be0014bb873d40d9ed9008, type: 3}
   SpawnInterval: 2
-  SpeedUpRate: 0.0000001
+  SpeedUpRate: 0.0001
 --- !u!1 &1215434127
 GameObject:
   m_ObjectHideFlags: 0

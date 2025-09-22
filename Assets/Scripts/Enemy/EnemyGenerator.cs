@@ -4,7 +4,7 @@ public class EnemyGenerator : MonoBehaviour {
 	[SerializeField] private Transform _playerTransform;
 	[SerializeField] private Enemy _enemyPrefab;
 	public float SpawnInterval = 2f;
-	public float SpeedUpRate = 0.0000001f;
+	public float SpeedUpRate = 0.000001f;
 
 	private float _lastSpawnTime = 0f;
 
