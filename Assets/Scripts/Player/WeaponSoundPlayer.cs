@@ -1,10 +1,14 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class WeaponSoundPlayer : MonoBehaviour {
-	[SerializeField] private AudioSource _audioSource;
-	[SerializeField] private AudioClip _shootClip;
+	public AudioClip ShootClip;
 
+	private AudioSource _audioSource;
+	void Awake() {
+		_audioSource = GetComponent<AudioSource>();
+	}
 	public void PlayShootSound() {
-		_audioSource.PlayOneShot(_shootClip);
+		_audioSource.PlayOneShot(ShootClip);
 	}
 }

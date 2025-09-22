@@ -101,7 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LineColor: {r: 1, g: 0, b: 0, a: 1}
   LineWidth: 1.4
-  LaserSprite: {fileID: -3040737957587010207, guid: f492f8f447faf9640a1a8e1639931ce6, type: 3}
   FadeInTime: 0.05
   FadeOutTime: 0.05
   LifeTime: 0.7

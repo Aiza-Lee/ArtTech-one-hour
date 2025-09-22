@@ -4,39 +4,33 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
-public class NormalEnemy : MonoBehaviour {
+public class Enemy : MonoBehaviour {
+	[Header("挂载")]
+	public ParticleTrigger HurtParticle;
 
 	[Header("敌人属性")]
 	public float ChasingForce = 2f;
-	public int Damage = 1;
-
-	[SerializeField] private ParticleTrigger _hurtParticle;
-
-	[SerializeField] private float _maxSpeed = 5f;
-
-	public int ScoreValue = 1;
 	public int MaxHealth = 1;
+	public float MaxSpeed = 5f;
 
+	public Transform Target { get; set; }
 	private int _currentHealth;
 
-	private Rigidbody2D _rgb2D;
+	private Rigidbody2D _rigidbody;
 	private SpriteRenderer _spriteRenderer;
-	private Transform _target;
-
-
 	void Awake() {
-		_rgb2D = GetComponent<Rigidbody2D>();
+		_rigidbody = GetComponent<Rigidbody2D>();
 		_spriteRenderer = GetComponent<SpriteRenderer>();
 		_currentHealth = MaxHealth;
 	}
 
 	void FixedUpdate() {
-		if (_target != null) {
-			var direction = (_target.position - transform.position).normalized;
-			_rgb2D.AddForce(direction * ChasingForce);
+		if (Target != null) {
+			var direction = (Target.position - transform.position).normalized;
+			_rigidbody.AddForce(direction * ChasingForce);
 
-			if (_rgb2D.velocity.magnitude > _maxSpeed) {
-				_rgb2D.velocity = _rgb2D.velocity.normalized * _maxSpeed;
+			if (_rigidbody.velocity.magnitude > MaxSpeed) {
+				_rigidbody.velocity = _rigidbody.velocity.normalized * MaxSpeed;
 			}
 		}
 	}
@@ -45,15 +39,11 @@ public class NormalEnemy : MonoBehaviour {
 		ScoreCounter.Inst.AddScore(1);
 	}
 
-	public void SetTarget(Transform target) {
-		_target = target;
-	}
-
 	void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.gameObject.layer == LayerMask.NameToLayer("DamageFromPlayer")) {
+			
 			Vector3 hitPoint = collision.ClosestPoint(transform.position);
-			Vector3 hitDirection = hitPoint - transform.position;
-			_hurtParticle.Play(-hitDirection);
+			HurtParticle.Play(hitPoint, transform.position);
 
 			_currentHealth -= 1;
 			_spriteRenderer.color *= new Color(0.7f, 0.7f, 0.7f);
@@ -64,9 +54,9 @@ public class NormalEnemy : MonoBehaviour {
 	}
 	
 	IEnumerator DoDestroy() {
-		_target = null;
+		Target = null;
 		GetComponent<Collider2D>().enabled = false;
-		yield return new WaitForSeconds(_hurtParticle.Duration * 2f);
+		yield return new WaitForSeconds(HurtParticle.Duration * 2f);
 		Destroy(gameObject);
 	}
 }

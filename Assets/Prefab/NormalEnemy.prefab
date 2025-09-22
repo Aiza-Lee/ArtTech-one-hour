@@ -4988,12 +4988,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f980906c5f1b99740a86caddcb412911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HurtParticle: {fileID: 2803573101819837109}
   ChasingForce: 14
-  Damage: 1
-  _hurtParticle: {fileID: 2803573101819837109}
-  _maxSpeed: 5
-  ScoreValue: 1
   MaxHealth: 1
+  MaxSpeed: 5
 --- !u!58 &844184723470445074
 CircleCollider2D:
   m_ObjectHideFlags: 0

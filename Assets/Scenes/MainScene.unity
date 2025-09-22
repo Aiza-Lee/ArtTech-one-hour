@@ -153,6 +153,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &343329453
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 343329454}
+  - component: {fileID: 343329455}
+  m_Layer: 0
+  m_Name: Developer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &343329454
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343329453}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &343329455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343329453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d408588ca92aa6e4291b3b523aec60cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1335700510}
+  _damageLinePrefab: {fileID: 7477227983507692310, guid: 82bb5d637746d8b4c9833f65060a9778, type: 3}
 --- !u!1 &395578564
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,8 +249,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e13b16dc0e3d174b9c5f3de6e169c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthBarFill: {fileID: 1506756048}
-  _weaponChargeFill: {fileID: 838657802}
+  HealthBarFill: {fileID: 1506756048}
+  WeaponChargeFill: {fileID: 838657802}
 --- !u!1 &483872041
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af38893b8904574e8c5f6bdba2ec74c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _magnitudeFactor: 1
+  MagnitudeFactor: 1
 --- !u!1 &609073597
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +633,6 @@ GameObject:
   - component: {fileID: 628307152}
   - component: {fileID: 628307151}
   - component: {fileID: 628307154}
-  - component: {fileID: 628307155}
   m_Layer: 9
   m_Name: Weapon
   m_TagString: Untagged
@@ -607,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e4e76fd1e732644a730a185cdbeda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cooldown: 1.5
+  Cooldown: 1
   _soundPlayer: {fileID: 727707447}
 --- !u!212 &628307152
 SpriteRenderer:
@@ -704,54 +749,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &628307155
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628307150}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
-  m_UseDelaunayMesh: 0
 --- !u!1 &632966970
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,7 +780,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 1335700509}
   _enemyPrefab: {fileID: 1123778591278414205, guid: fd6f08a652be0014bb873d40d9ed9008, type: 3}
-  _spawnInterval: 1.8
+  SpawnInterval: 1.7
+  SpeedUpRate: 0.0000001
 --- !u!4 &632966972
 Transform:
   m_ObjectHideFlags: 0
@@ -971,8 +969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b90738c7b93c3941a37861cd3d86304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSource: {fileID: 727707446}
-  _shootClip: {fileID: 8300000, guid: 68aee95a80cac4140b05f77388433452, type: 3}
+  ShootClip: {fileID: 8300000, guid: 68aee95a80cac4140b05f77388433452, type: 3}
 --- !u!1 &742802624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1282,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 1335700509}
   _enemyPrefab: {fileID: 1123778591278414205, guid: fd6f08a652be0014bb873d40d9ed9008, type: 3}
-  _spawnInterval: 1.7
+  SpawnInterval: 1.8
+  SpeedUpRate: 0.0000001
 --- !u!4 &937190470
 Transform:
   m_ObjectHideFlags: 0
@@ -1332,7 +1330,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 1335700509}
   _enemyPrefab: {fileID: 1123778591278414205, guid: fd6f08a652be0014bb873d40d9ed9008, type: 3}
-  _spawnInterval: 1.5
+  SpawnInterval: 1.5
+  SpeedUpRate: 0.0000001
 --- !u!4 &1026808795
 Transform:
   m_ObjectHideFlags: 0
@@ -1522,7 +1521,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerTransform: {fileID: 1335700509}
   _enemyPrefab: {fileID: 1123778591278414205, guid: fd6f08a652be0014bb873d40d9ed9008, type: 3}
-  _spawnInterval: 1.2
+  SpawnInterval: 2
+  SpeedUpRate: 0.0000001
 --- !u!1 &1215434127
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,7 +1729,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weapon: {fileID: 628307151}
   _hurtParticle: {fileID: 1420995601}
-  _beatBackRadius: 3
   Speed: 7
   Damage: 1
   MaxHealth: 5
@@ -1804,7 +1803,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!1 &1420995600
 GameObject:
@@ -7343,7 +7342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d42d780059e814b99bea7d91b0a082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageLinePrefab: {fileID: 7477227983507692310, guid: 82bb5d637746d8b4c9833f65060a9778, type: 3}
+  DamageLinePrefab: {fileID: 7477227983507692310, guid: 82bb5d637746d8b4c9833f65060a9778, type: 3}
 --- !u!1 &2119144289
 GameObject:
   m_ObjectHideFlags: 0
@@ -7558,6 +7557,7 @@ Rigidbody2D:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 343329454}
   - {fileID: 1709040680}
   - {fileID: 619394802}
   - {fileID: 609073598}
