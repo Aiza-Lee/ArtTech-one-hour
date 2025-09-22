@@ -40,4 +40,9 @@ public class DeveloperMode : MonoBehaviour {
 			_currentIndex = 0;
 		}
 	}
+
+	void OnDestroy() {
+		if (!_isDevMode) return;
+		_damageLinePrefab.LineWidth /= 10;
+	}
 }
