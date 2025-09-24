@@ -3,12 +3,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(AudioSource))]
 public class Weapon : MonoBehaviour {
 	[Header("属性")]
 	public float Cooldown = 0.5f;
 	public float ChargingPercent => Mathf.Clamp01((Time.time - _lastUseTime) / Cooldown);
 
-	[SerializeField] private WeaponSoundPlayer _soundPlayer;
 
 	private float _lastUseTime = -9999f;
 	private bool _onPlayer;
@@ -17,10 +17,12 @@ public class Weapon : MonoBehaviour {
 
 	private Rigidbody2D _rb2D;
 	private SpriteRenderer _spriteRenderer;
+	private AudioSource _soundPlayer;
 	private void Awake() {
 		_rb2D = GetComponent<Rigidbody2D>();
 		_spriteRenderer = GetComponent<SpriteRenderer>();
 		_originalColor = _spriteRenderer.color;
+		_soundPlayer = GetComponent<AudioSource>();
 	}
 
 	void Start() {
@@ -52,7 +54,7 @@ public class Weapon : MonoBehaviour {
 			_lastUseTime = Time.time;
 
 			CameraShaker.Inst.Shake(0.4f, 0.4f);
-			_soundPlayer.PlayShootSound();
+			_soundPlayer.Play();
 			DamageLineGenerator.Inst.Spawn(_bondedPlayer.transform.position, transform.position);
 			StartCoroutine(DoTransition());
 		} else {
