@@ -7,28 +7,30 @@ public class DeveloperMode : MonoBehaviour {
 	};
 
 	[SerializeField] private Player _player;
-	[SerializeField] private DamageLine _damageLinePrefab;
+	[SerializeField] private Laser _damageLinePrefab;
 
 	private int _currentIndex = 0;
 	private float _lastKeyTime = 0f;
-	private const float MaxInterval = 0.6f;
+	private const float MAX_INTERVAL = 0.6f;
 	private bool _isDevMode = false;
 
 	void Update() {
 		if (_isDevMode) {
 			if (Input.GetKeyDown(KeyCode.H)) {
+				StatusBar.Inst.UpdateHealthText(1f);
 				_player.CurrentHealth = _player.MaxHealth;
 			}
 			return;
 		}
 		if (Input.GetKeyDown(_toggleKey[_currentIndex])) {
-			if (Time.time - _lastKeyTime <= MaxInterval) {
+			if (Time.time - _lastKeyTime <= MAX_INTERVAL) {
 				_currentIndex++;
 				if (_currentIndex >= _toggleKey.Length) {
 					// Toggle developer mode
 					_isDevMode = true;
 					Debug.Log("Developer mode activated");
-					_player.MaxHealth = _player.CurrentHealth = 100;
+					StatusBar.Inst.UpdateHealthText(1f);
+					_player.MaxHealth = _player.CurrentHealth = 500;
 					_damageLinePrefab.LineWidth *= 10;
 					_currentIndex = 0;
 				}

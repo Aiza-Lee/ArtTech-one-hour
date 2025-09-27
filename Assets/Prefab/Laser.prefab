@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6352509884001339373}
   - component: {fileID: 1838181754068274352}
   m_Layer: 6
-  m_Name: DamageLine
+  m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

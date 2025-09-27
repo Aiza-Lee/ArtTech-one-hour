@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour {
 	}
 
 	void Start() {
-		_rb2D.AddTorque(_rb2D.mass / 6, ForceMode2D.Impulse);
+		_rb2D.AddTorque(_rb2D.mass / 8, ForceMode2D.Impulse);
 	}
 
 	public void SetPlayer(Player player) {
@@ -72,6 +72,6 @@ public class Weapon : MonoBehaviour {
 		yield return null;
 		yield return null;
 		yield return null;
-		_bondedPlayer.GetComponent<Rigidbody2D>().position = transform.position;
+		_bondedPlayer.transform.position = transform.position;
 	}
 }

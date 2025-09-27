@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class Enemy : MonoBehaviour {
 	[Header("挂载")]
-	public ParticleTrigger HurtParticle;
+	public HurtParticlePalyer HurtParticle;
 
 	[Header("敌人属性")]
 	public float ChasingForce = 2f;
@@ -35,28 +35,25 @@ public class Enemy : MonoBehaviour {
 		}
 	}
 
-	void OnDestroy() {
-		ScoreCounter.Inst.AddScore(1);
-	}
-
 	void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.gameObject.layer == LayerMask.NameToLayer("DamageFromPlayer")) {
 			
 			Vector3 hitPoint = collision.ClosestPoint(transform.position);
-			HurtParticle.Play(hitPoint, transform.position);
+			HurtParticle.Play(hitPoint);
 
 			_currentHealth -= 1;
 			_spriteRenderer.color *= new Color(0.7f, 0.7f, 0.7f);
 			if (_currentHealth <= 0) {
-				StartCoroutine(DoDestroy());
+				StartCoroutine(DoDestroy(HurtParticle.Duration));
 			}
 		}
 	}
 	
-	IEnumerator DoDestroy() {
+	IEnumerator DoDestroy(float delay) {
+		ScoreCounter.Inst.AddScore(1);
 		Target = null;
 		GetComponent<Collider2D>().enabled = false;
-		yield return new WaitForSeconds(HurtParticle.Duration * 2f);
+		yield return new WaitForSeconds(delay);
 		Destroy(gameObject);
 	}
 }

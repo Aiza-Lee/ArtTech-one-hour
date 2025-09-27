@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class DamageLine : MonoBehaviour {
+public class Laser : MonoBehaviour {
 
 	[Header("基础设置")]
 	public Color LineColor = Color.red;

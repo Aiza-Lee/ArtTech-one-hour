@@ -4,7 +4,7 @@ using UnityEngine;
 public class CameraShaker : MonoBehaviour {
 	public static CameraShaker Inst;
 	void Awake() {
-		if (Inst != null && Inst != this) { Destroy(gameObject); }
+		if (Inst != null && Inst != this) { Destroy(gameObject); return; }
 		Inst = this;
 	}
 
@@ -26,5 +26,12 @@ public class CameraShaker : MonoBehaviour {
 			transform.localRotation = Quaternion.identity;
 		}
 		_curRotTweener = transform.DOShakeRotation(duration, magnitude * MagnitudeFactor / 3);
+	}
+
+	void OnDestroy() {
+		_curPosTweener?.Kill();
+		_curRotTweener?.Kill();
+		_curPosTweener = null;
+		_curRotTweener = null;
 	}
 }
