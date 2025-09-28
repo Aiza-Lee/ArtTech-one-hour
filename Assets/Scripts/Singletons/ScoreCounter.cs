@@ -5,7 +5,6 @@ public class ScoreCounter : MonoBehaviour {
 	void Awake() {
 		if (Inst != null && Inst != this) { Destroy(gameObject); return; }
 		Inst = this;
-		DontDestroyOnLoad(gameObject);
 	}
 
 	[SerializeField] private TMPro.TMP_Text _scoreText;

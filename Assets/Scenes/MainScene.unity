@@ -562,7 +562,6 @@ GameObject:
   m_Component:
   - component: {fileID: 571388683}
   - component: {fileID: 571388686}
-  - component: {fileID: 571388685}
   - component: {fileID: 571388684}
   - component: {fileID: 571388687}
   m_Layer: 9
@@ -631,14 +630,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!81 &571388685
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571388682}
-  m_Enabled: 1
 --- !u!20 &571388686
 Camera:
   m_ObjectHideFlags: 0
@@ -8110,7 +8101,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -857601179
   m_SortingLayer: -3
-  m_SortingOrder: 0
+  m_SortingOrder: -100
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
